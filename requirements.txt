@@ -1,0 +1,14 @@
+pandas
+scikit-learn
+numpy
+seaborn
+matplotlib
+flask
+ipykernel
+mlflow==2.2.2
+dvc
+apache-airflow
+xgboost
+docker
+
+-e .
