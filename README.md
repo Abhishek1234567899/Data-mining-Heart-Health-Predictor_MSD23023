@@ -12,13 +12,14 @@ This project is a machine learning-based application designed to predict the lik
 2. [Features](#features)  
 3. [Dataset](#dataset)  
 4. [Model](#model)  
-5. [Hyperparameter Tuning](#hyperparameter-tuning)  
-6. [Installation](#installation)  
-7. [Usage](#usage)  
-8. [Evaluation Metrics](#evaluation-metrics)  
-9. [Future Improvements](#future-improvements)  
-10. [Contributing](#contributing)  
-11. [License](#license)
+5. [Data Storage, Extraction, and Transformation](#data-storage-extraction-and-transformation)  
+6. [Hyperparameter Tuning](#hyperparameter-tuning)  
+7. [Installation](#installation)  
+8. [Usage](#usage)  
+9. [Evaluation Metrics](#evaluation-metrics)  
+10. [Future Improvements](#future-improvements)  
+11. [Contributing](#contributing)  
+12. [License](#license)
 
 ---
 
@@ -33,8 +34,9 @@ Cardiovascular diseases are among the leading causes of death worldwide. Early d
 - **Multi-Model Support**: Implements Logistic Regression, Decision Trees, Random Forest, SVM, and KNN for comparison.  
 - **Hyperparameter Optimization**: Models are fine-tuned for improved performance.  
 - **Data Visualizations**: Insights are provided through graphs and charts for exploratory analysis.  
+- **Database Integration**: Patient data is securely stored in a database for persistence.  
+- **Data Pipeline**: Includes data extraction, transformation, and loading for analytics and predictions.  
 - **User-Friendly Web Application**: Easy-to-use interface for quick predictions.  
-- **Open-Source**: The code is freely available for customization and extension.
 
 ---
 
@@ -79,6 +81,30 @@ This project implements and evaluates the following machine learning models:
 
 ---
 
+## Data Storage, Extraction, and Transformation
+
+### Data Storage
+Patient and prediction data are stored in a **relational database** (e.g., SQLite, MySQL) to ensure persistence and enable historical analysis. The database schema includes:
+- **Patients Table**: Stores patient demographic and medical data.  
+- **Predictions Table**: Records model predictions along with timestamps for tracking.  
+
+### Extraction and Transformation
+A **data pipeline** is implemented for seamless extraction, transformation, and loading (ETL):  
+1. **Extraction**:
+   - Data is pulled from the database using SQL queries for analysis and training.  
+   - API integrations can be added to import real-time patient data.  
+
+2. **Transformation**:
+   - Handling missing data through imputation methods.  
+   - Encoding categorical variables (e.g., `cp`, `thal`).  
+   - Scaling numerical features (e.g., `age`, `chol`).  
+   - Adding derived columns for new insights (e.g., BMI from weight and height if available).  
+
+3. **Loading**:
+   - Transformed data is saved back to the database for use by the application and machine learning models.  
+
+---
+
 ## Hyperparameter Tuning
 
 To enhance model accuracy and efficiency, hyperparameter tuning was performed using **GridSearchCV** and **RandomizedSearchCV**. Below are the optimized parameters:
@@ -117,17 +143,11 @@ To enhance model accuracy and efficiency, hyperparameter tuning was performed us
 ### Prerequisites
 Ensure the following are installed on your system:
 - Python 3.x  
-- Libraries: `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `seaborn`, `flask`
+- Libraries: `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `seaborn`, `flask`  
+- A relational database (e.g., SQLite, MySQL)
 
 ### Steps
 1. Clone the repository:
    ```bash
-  https://github.com/Abhishek1234567899/Data-mining-Heart-Health-Predictor_MSD23023.git
-
-
-Install dependencies:
-pip install -r requirements.txt
-
-Run the application:
-
-python app.py
+   git clone https://github.com/your-username/heart-disease-predictor.git
+   cd heart-disease-predictor
