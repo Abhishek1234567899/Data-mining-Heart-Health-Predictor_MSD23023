@@ -122,8 +122,7 @@ Ensure the following are installed on your system:
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/heart-disease-predictor.git
-   cd heart-disease-predictor
+  https://github.com/Abhishek1234567899/Data-mining-Heart-Health-Predictor_MSD23023.git
 
 
 Install dependencies:
